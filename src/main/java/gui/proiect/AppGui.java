@@ -3,17 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yas.proiect.smart;
+package gui.proiect;
 
 //import javax.swing.JFrame;
+
+import Activitati.Muzeu;
+import Activitati.ParcPublic;
+
 
 public class AppGui extends javax.swing.JFrame {
     static int i = 0;
     static int[] prog1 = {7, 22}, prog2 = {12, 18}, prog3 = {3, 7}, prog4 = {11, 19}, prog5 = {13, 20};
     static double[] pret1 = {5.6, 10.3}, pret0 = {6, 11}, pret3 = {0, 6}, pret4 = {10, 27};
-    Muzeu muzeu1 = new Muzeu("Muzeul din Gradina Botanica", "Faleza Galati", (new int[]{10, 18}), 4.9f, (new double[]{5, 10}), "Stiinte ale naturii", 1930, 988,(new double[]{10.5,4.5,6.7,3.4}));
-    Muzeu muzeu2 = new Muzeu("Muzeul de Istorie", "Domneasca", prog4, 4.9f, pret0, "Istorie", 1930, 988,(new double[]{11.5,3.5,4.7,7.4}));
-    ParcPublic parc1 = new ParcPublic("Gradina Publica", "Strada Domneasca", prog1, 4.5f, pret0, 988.0, 5, 7, 10);
+    Muzeu muzeu1 = new Muzeu("Muzeul din Gradina Botanica", "Faleza Galati", 
+            (new int[]{10, 18}), 4.9f, (new double[]{5, 10,4.5,7.6,4.5,6}), "Stiinte ale naturii", 1930, 988);
+    Muzeu muzeu2 = new Muzeu("Muzeul de Istorie", "Domneasca", prog4, 4.9f, 
+            (new double[]{4.6,9.8,11.5,3.5,4.7,7.4}), "Istorie", 1930, 988);
+    ParcPublic parc1 = new ParcPublic("Gradina Publica", "Strada Domneasca", prog1, 4.5f, (new double[]{5, 10,4.5,7.6,4.5,6}), 988.0, 5, 7, 10);
     Muzeu copy;
 
     /**

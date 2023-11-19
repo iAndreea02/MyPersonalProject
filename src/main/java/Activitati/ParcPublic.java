@@ -8,16 +8,17 @@
                     -caruser
                     -inchiriere biciclete
  */
-package yas.proiect.smart;
+package Activitati;
 
-import java.util.ArrayList;
+import yas.proiect.smart.Turism;
+
 
 public class ParcPublic extends Turism {
 
     public int nrToalete;
     public double suprafata;
     
-    public int nrBiciclete = 0;
+    public int nrBiciclete ;
     public int nrBanci;
     ///private String[] other;
     
@@ -73,11 +74,14 @@ public class ParcPublic extends Turism {
     }   
     }
         
-    
+    //magazin
 
     @Override
     public String toString() {
-        return super.toString() +"\nSuprafata: " +this.suprafata+"\nNr de *toalete " + this.nrToalete+"\nNr de banci: "+this.nrBanci+"\nNr de biciclete de inchiriat: "+this.nrBiciclete ;
+        return super.toString() +"\nSuprafata: " 
+                +this.suprafata+"\nNr de *toalete " 
+                + this.nrToalete+"\nNr de banci: "+this.nrBanci
+                +"\nNr de biciclete de inchiriat: "+this.nrBiciclete+"\n\n" ;
     }
     
         

@@ -13,14 +13,15 @@ import java.util.Set;
 public abstract class Turism {
 
     public float rating;
-    protected double[] pret = new double[2];
+    protected double[] pret ;
     public String adresa, nume;
-    public int[] program = new int[2];
+    public int[] program = new int[2] ;
     protected double bill = 0.0;
+    
+    
     public Turism() {
-        rating = 0;
-        pret[0]=0.0;
-        pret[1]=0.0;
+        rating = 0.0f;
+        pret=new double[]{0.0,0.0};
         adresa = " ";
         nume = " ";
         program[0] = 0;

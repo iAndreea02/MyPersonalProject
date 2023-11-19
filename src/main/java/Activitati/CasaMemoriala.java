@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package yas.proiect.smart;
+package Activitati;
 
 import java.util.Scanner;
+import yas.proiect.smart.Turism;
 
 /*
 Casa memoriabila 
@@ -16,19 +17,24 @@ public class CasaMemoriala extends Turism {
 
     public String Proprietar;
     public String EvenimentMemorial;
-    public String tipCladire;
+    public String tipCladire; //conac cetate casa 
+    private boolean ghid ;
+    
     public CasaMemoriala() {
         super();
         this.Proprietar = "Necunoscut";
         this.EvenimentMemorial="Nimic";
         tipCladire = "Necunoscut";
+       ghid = false;
     }
 
-    public CasaMemoriala(String nume, String adresa, int program[], float rating, double[] pret, String tipCladire, int an, String Proprietar,String EvenimentMemoriala) {
+    public CasaMemoriala(String nume, String adresa, int program[], float rating, double[] pret, String tipCladire, int an, String Proprietar,String EvenimentMemoriala,boolean ghid) {
         super(nume, adresa, program, rating, pret);
         this.Proprietar = Proprietar;
         this.EvenimentMemorial=EvenimentMemoriala;
         this.tipCladire=tipCladire;
+        this.ghid=ghid;
+      
     }
 
     public CasaMemoriala(CasaMemoriala m) {
@@ -36,6 +42,7 @@ public class CasaMemoriala extends Turism {
         this.Proprietar = m.Proprietar;
         this.EvenimentMemorial=m.EvenimentMemorial;
         this.tipCladire=m.tipCladire;
+        this.ghid=m.ghid;
     }
 
     public void cumparBilet(int nrCopii, int nrAdulti) throws Exception {
@@ -51,26 +58,17 @@ public class CasaMemoriala extends Turism {
     }
 
   
-    public void vreaSuvenir(double[] all_pret) {
-        System.out.println("La suvenir avem : Ghid " + all_pret[0] + " \n Carti- " + all_pret[1] + "\n Vedere -" + all_pret[2]);
-       Scanner in=new Scanner(System.in);
-        String raspuns = in.next();
-        System.out.println("Cate bucati dori? ");
-        int nr = in.nextInt();
-        switch (raspuns) {
-            case "Ghid":
-                bill += all_pret[0];
-
-                break;
-            case "Carti":
-                bill += all_pret[21];
-                break;
-            case "Vedere":
-                bill += all_pret[2];
-                break;
-            default:
-                System.out.println("Din pacate,nu avem in stock:(");
-        }
+    public void vreaGhid(){
+    if(ghid ==true){
+    System.out.println("Taxa pentru ghid este "+pret[2]);
+    bill +=pret[2];}
+    else System.out.println(nume+"nu are ghid");
+    }
+    
+    public void vreaSceneta(){
+    System.out.println("Pretul la sceneta este "+pret[3]);
+    bill+=pret[3];
+    
     }
     
     public void vreaSaDoneze(double donare) {
@@ -83,7 +81,7 @@ public class CasaMemoriala extends Turism {
 
     @Override
     public String toString() {
-        return super.toString() +"\nTip cladire: "+this.tipCladire +"\n Autor: " + Proprietar+"\nEveniment memorial: "+this.EvenimentMemorial;
+        return super.toString() +"\nTip cladire: "+this.tipCladire +"\n Autor: " + Proprietar+"\nEveniment memorial: "+this.EvenimentMemorial+"\n\n";
     }
 
 }

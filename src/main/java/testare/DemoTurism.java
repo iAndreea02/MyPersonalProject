@@ -12,6 +12,9 @@ import Activitati.Muzeu;
 import Activitati.ParcPublic;
 import Mancare.Restaurant;
 import java.io.IOException;
+import yas.proiect.smart.Clinica;
+import yas.proiect.smart.PPA;
+import yas.proiect.smart.Spital;
 import yas.proiect.smart.Turism;
 
 /**
@@ -25,63 +28,144 @@ public class DemoTurism {
          
    //-----Restaurant
    //Constructor fara parametri
+   System.out.println("Constructor fara parametri");
    Restaurant a =new Restaurant();
-   System.out.println(a);
-   
+   System.out.println("\n"+a);
    int[] program1={10,22};
    double[] pret1={48.5,15.99,20.99,25.99};
    //Constructor cu parametri efectivi
+   System.out.println("Constructor cu parametri efectivi");
    Restaurant b =new Restaurant("Blue Aqua","pescaresc","str. regiment 11 siret", 4.5f,program1, 100,true,true,"ciorba de vacuta si friptura cu piure","ou cu bacon impreuna cu gemuri si branzeturi","ciorba de burta si icre de  peste","paste carbonara impreuna cu carne de vita la cuptor cu portocale","aperol spritz , rom,cola si apa minerala",false,false,pret1 );
-   System.out.println(b);
+   System.out.println("\n"+b);
    //Constructor de copiere
+    System.out.println("Constructor de copiere");
    Restaurant copy_res = new Restaurant (b);  
-   System.out.println(copy_res);
+   System.out.println("\n"+copy_res);
+   
+   
    
    //-----Cafene 
     //Constructor fara parametri
+    System.out.println("\nConstructor fara parametri");
    Cafenele c=new Cafenele();
-        System.out.println(c);
+        System.out.println("\n"+c);
         program1[0]=7;
         program1[1]=4;
         //Constructor cu parametri efectivi
-        Cafenele d=new Cafenele("FRESH","str basarabiei nr. 56",4.8f,program1,false,"sandwich italian,sandwich cu sunca, sandwich rustic,sandwich cu ton,toast,sandwich grecesc,sandwich caesar","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",pret1,true,true,true);
-        System.out.println(d);
+        System.out.println("\nConstructor cu parametri efectivi");
+        Cafenele d=new Cafenele("FRESH","str basarabiei nr. 56",4.8f,program1,false,"sandwich italian,sandwich cu sunca, sandwich rustic,sandwich cu ton,toast,sandwich grecesc,sandwich caesar","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{12.5,7.8},true,true,true);
+        System.out.println("\n"+d);
         //Constructor de copiere
+         System.out.println("\nConstructor de copiere");
         Cafenele copy_caf=new Cafenele();
-        System.out.println(copy_caf);
+        System.out.println("\n"+copy_caf);
+        
+        
         
         //------Parc Public 
           //Constructor fara parametri
+          System.out.println("\nConstructor fara parametri");
         ParcPublic parc0 = new ParcPublic();
+        System.out.println(parc0); 
         //Constructor cu parametri efectivi
+        System.out.println("\nConstructor cu parametri efectivi");
         ParcPublic parc1 = new ParcPublic("Gradina Publica", "Strada Domneasca", (new int[]{10, 18}), 4.5f, (new double[]{8.5, 10.5}), 988.0, 5, 7, 10);
-       //Constructor de copiere
+        System.out.println(parc1);
+        //Constructor de copiere
+        System.out.println("\nConstructor de copiere");
         ParcPublic parc_copy = new ParcPublic(parc1);
+        System.out.println("\n"+parc_copy);
        
-        //---Muzeu
+        
+//---Muzeu
           //Constructor fara parametri
+          System.out.println("\nConstructor fara parametri");
         Muzeu muzeu0 = new Muzeu();
-        System.out.println(muzeu0);
+        System.out.println("\n"+muzeu0);
         //Constructor cu parametri efectivi
+        System.out.println("\nConstructor cu parametri efectivi");
          Muzeu muzeu1 =new Muzeu("Muzeul din Gradina Botanica", "Faleza Galati", new int[]{10, 17}, 4.5f, new double[]{3.5, 10.4,10.5, 4.5, 6.7, 3.4}, "Stiinte ale naturii", 1930, 843);
-         System.out.println(muzeu1);
+         System.out.println("\n"+muzeu1);
          //Constructor de copiere
+          System.out.println("\nConstructor de copiere");
         Muzeu muzeu_copy = new Muzeu(muzeu1);
-        System.out.println(muzeu_copy);
+        System.out.println("\n"+muzeu_copy);
+        
         //---Casa Memoriala
            //Constructor fara parametri
+           System.out.println("\nConstructor fara parametri");
         CasaMemoriala casa0 = new CasaMemoriala();
-        System.out.println(casa0);
+        System.out.println("\n"+casa0);
         //Constructor cu parametri efectivi
+        System.out.println("\nConstructor cu parametri efectivi");
         CasaMemoriala casa1 = new CasaMemoriala("Casa Cuza Voda", "Strada Alexandru Ioan Cuza", (new int[]{12, 19,}), 4.3f, (new double[]{3.5, 8.2, 4.7, 8.4}), "Casa", 1939, "Alexandru Ioan Cuza", "LA 158 DE ANI DE LA UNIREA PRINCIPATELOR ROMÂNE",true);
-        System.out.println(casa1);
+        System.out.println("\n"+casa1);
         //Constructor de copiere
+         System.out.println("\nConstructor de copiere");
         CasaMemoriala casa_copy = new CasaMemoriala(casa1);
-        System.out.println(casa_copy);
+        System.out.println("\n"+casa_copy);
         
+        //---Spital
+        //Constructor fara parametri
+        System.out.println("\nConstructor fara parametri");
+        Spital spital0=new Spital();
+        System.out.println("\n"+spital0);
+        //Constructor cu parametri efectivi
+        System.out.println("\nConstructor cu parametri efectivi");
+        Spital spital1 = new Spital("Spitalul Judetean", "Strada Brailei 117", new int[]{5, 17}, 4.5f, new double[]{100, 0, 200, 80, 0, 0, 0, 110, 0}, "Stat", new String[]{"Neurologie","Chirurgie","ORL","Pediatrie"});
+        System.out.println("\n"+spital1);
+        //Constructor de copiere
+         System.out.println("\nConstructor de copiere");
+        Spital spital_copie=new Spital(spital1);
+       System.out.println("\n"+spital_copie);
+        
+        //---Clinica
+        //Constructor fara parametri
+        System.out.println("\nConstructor fara parametri");
+       Clinica clinicaInstance1=new Clinica();
+       System.out.println("\n"+clinicaInstance1);
+        //Constructor cu parametri efectivi
+       System.out.println("\nConstructor cu parametri efectivi");
+       Clinica clinicaInstance = new Clinica("ProClinic", "Strada Traian 136", new int[]{9, 20}, 4.0f, new double[]{0, 90, 150, 200, 0, 160},new String[]{"ORL","Radiologie","Nutritionist","Psihiatrie"} );
+       System.out.println("\n"+clinicaInstance);
+        //Constructor de copiere
+         System.out.println("\nConstructor de copiere");
+       Clinica clinica_copie=new Clinica(clinicaInstance);
+       System.out.println("\n"+clinica_copie);
        
-       
-       
+        //Prim Ajutor
+       //Constructor fara parametri
+       System.out.println("\nConstructor fara parametri");
+       PPA ppaInstance1=new PPA();
+       System.out.println("\n"+ppaInstance1);
+       System.out.println("\nConstructor cu parametri efectivi");
+       PPA ppaInstance = new PPA("UVSAR", " Cămin studențesc C-parter, Strada Domnească", new int[]{0, 24}, 4.8f, new double[]{50, 0}, true, new String[]{"Cursuri","Prim Ajutor"}); 
+       System.out.println("\n"+ppaInstance); 
+        //Constructor de copiere
+         System.out.println("\nConstructor de copiere");
+         PPA ppa_copie=new PPA(ppaInstance);
+         System.out.println("\n"+ppa_copie);
+         
+          //---Apartament
+          System.out.println("\nConstructor fara parametri");
+           Apartament A =new Apartament();
+        System.out.println(A);
+        System.out.println("\nConstructor cu parametri efectivi");
+         Apartament A1 =new Apartament("Maiu miau", 2.22f,( new double[] {674.50}),"Str. Constantin  , Nr.121",new int[] {9,22},"dublu",3,2,12,1,true,false,false);
+        System.out.println(A1);
+        System.out.println("\nConstructor de copiere");
+         Apartament A2 =new Apartament(A1);
+        System.out.println(A2);
+          //Hotel
+           Hotel h =new Hotel();
+            System.out.println(h);
+            System.out.println("\nConstructor cu parametri efectivi");
+                 Hotel h1 =new Hotel("Baxoridana",5.0f,( new double[] {560.60}),"Str.Crizantemelor ofilite, nr 1",new int[] {8,20},355, true, false, true,false,true);
+                    System.out.println(h1);
+             System.out.println("\nConstructor de copiere");
+             Hotel h2= new Hotel(h1);
+              System.out.println(h2);
+         
        ///---------------------------Muzeu------------------------
        ArrayList<Muzeu> vecMuzeu = new ArrayList<Muzeu>();
         
@@ -125,8 +209,7 @@ public class DemoTurism {
         
       
        ///---------------------------Hotel------------------------
-        Hotel h =new Hotel();
-        System.out.println(h);
+       
         ArrayList<Hotel> vectorHotel= new ArrayList<Hotel>();
         vectorHotel.add(new Hotel("Steluta",4.5f,( new double[] {450.50}),"Bd Crizantemelor, Nr.15",new int[] {10,22},30, true, false, false,true,true)) ;
         vectorHotel.add( new Hotel("VEGA",3.2f, ( new double[] {545.50}),"Str. Sperantei, Nr.70",new int[] {9,22},45, true, true, true,true,false));
@@ -141,8 +224,7 @@ public class DemoTurism {
        
         
          ///---------------------------Apartament------------------------
-        Apartament A =new Apartament();
-        System.out.println(A);
+      
         ArrayList<Apartament> vectorApartament= new ArrayList<Apartament>();
         vectorApartament.add(new Apartament("ApartHotel", 3.22f,( new double[] {450.50}),"Str. Brailei , Nr.120",new int[] {10,22},"dublu",4,2,23,5,true,true,true));
         vectorApartament.add(new Apartament("Belvedere", 4.32f,( new double[] {670.50}),"Str. Henri Coanda, Nr.13",new int[] {11,22},"triplu",5,3,53,6,false,true,true));
@@ -156,14 +238,76 @@ public class DemoTurism {
         vectorApartament.add(new Apartament("Novac", 1.4f,( new double[] {321.93}),"Str. Siderurgistilor, nr 47",new int[] {7,23},"King",5,3,34,2,false,true,false));
         Scanner in =new Scanner(System.in);
         
+        ///---------------------------Spital------------------------
+         ArrayList<Spital> vecSpital = new ArrayList<Spital>();
+        vecSpital.add(new Spital("Spitalul Militar", "Strada Traian 199", new int[]{0, 24}, 3.7f, new double[]{110, 155, 205, 60, 0, 165, 87, 110, 160}, "Stat", new String[]{"Neurologie","Oftamologie","Chirurgie","ORL","Radiologie","Psihiatrie","Pediatrie","Cardiologie"}));
+        vecSpital.add(new Spital("Spitalul CFR", "Strada Alexandru Moruzzi 6", new int[]{0, 24}, 3.8f, new double[]{110, 155, 205, 60, 0, 0, 0, 110, 160}, "Stat", new String[]{"Neurologie","Oftamologie","Chirurgie","ORL","Pediatrie","Cardiologie"}));
+        vecSpital.add(new Spital("Spitalul de Boli Infectioase", "Strada Traian 393", new int[]{0, 24}, 3.7f, new double[]{0, 0, 250, 0, 150, 0, 0, 0, 0}, "Stat", new String[]{"Boli Infectioase","Chirurgie"}));
+        vecSpital.add(new Spital("Spitalul de Urgenta pentru Copii", "Strada Gheorghe Asachi 2", new int[]{0, 24}, 3.3f, new double[]{100, 110, 210, 85, 0, 140, 90, 110, 160}, "Stat", new String[]{"Neurologie","Oftamologie","Chirurgie","ORL","Radiologie","Psihiatrie","Pediatrie","Cardiologie"}));
+        vecSpital.add(new Spital("Spitalul de Pneumoftiziologie", "Strada Radu Negru", new int[]{0, 24}, 4.4f, new double[]{0, 0, 100, 0, 0, 185, 70, 0, 0}, "Stat", new String[]{"Chirurgie","Radiologie","Psihiatrie"}));
+        vecSpital.add(new Spital("Spitalul de Psihiatrie", "Strada Traian 290", new int[]{0, 24}, 2.9f, new double[]{0, 0, 0, 0, 0, 0, 165, 0, 0}, "Stat", new String[]{"Psihiatrie"}));
+        vecSpital.add(new Spital("Medicus Center", "Strada Traian 120", new int[]{9, 15}, 3.1f, new double[]{110, 155, 0, 60, 0, 165, 87, 0, 0}, "Privat", new String[]{"Neurologie","Oftamologie","ORL","Radiologie","Psihiatrie"}));
+        vecSpital.add(new Spital("MedCity", "Strada Brăilei nr. 156", new int[]{9, 16}, 4.7f, new double[]{0, 155, 0, 65, 0, 0, 97, 115, 180}, "Privat", new String[]{"Oftamologie","ORL","Psihiatrie","Pediatrie","Cardiologie"}));
+        vecSpital.add(new Spital("LAUNER", "Bulevardul George Coșbuc 410", new int[]{10, 15}, 2.7f, new double[]{115, 255, 0, 200, 0, 0, 0, 160, 195}, "Privat", new String[]{"Neurologie","Oftamologie","ORL","Pediatrie","Cardiologie"}));
+
+        ///---------------------------Clinica------------------------
+        ArrayList<Clinica> vecClinica = new ArrayList<Clinica>();
+       vecClinica.add(new Clinica("Clinica Sanavita", "Strada Grădina Veche NR 90", new int[]{9, 19}, 3.1f, new double[]{125, 80, 145, 210, 75, 165}, new String[]{"Oftamologie","ORL","Radiologie","Nutritionist","Pediatrie","Psihiatrie"}));
+       vecClinica.add(new Clinica("Clinica Medicover", "Strada Domnească 66", new int[]{8, 20}, 2.8f, new double[]{200, 0, 0, 215, 80, 0},  new String[]{"Oftamologie","Nutritionist","Pediatrie"}));
+       vecClinica.add(new Clinica("Epert Med Centrul Medical Irina", "Strada Crinului 24", new int[]{9, 20}, 2.7f, new double[]{125, 75, 125, 175, 0, 0},  new String[]{"Oftamologie","ORL","Radiologie","Nutritionist"}));
+       vecClinica.add(new Clinica("Aves Medicom - Clinica Medicala", "Strada Ion Luca Caragiale 13", new int[]{7, 15}, 4.0f, new double[]{120, 95, 155, 210, 75, 165},  new String[]{"Oftamologie","ORL","Radiologie","Nutritionist","Pediatrie","Psihiatrie"}));
+       vecClinica.add(new Clinica("Terra Clinique", " Strada Brăilei", new int[]{7, 14}, 4.6f, new double[]{0, 95, 155, 0, 75, 0},  new String[]{"ORL","Radiologie","Pediatrie"}));
+       vecClinica.add(new Clinica("Laurus Medical ", " Strada Cristofor Columb 100", new int[]{8, 16}, 4.6f, new double[]{110,0, 155, 250, 0, 0},  new String[]{"Oftamologie","Radiologie","Nutritionist"}));
+       vecClinica.add(new Clinica("CENTRUL MEDICAL MAYCOR", " Aleea Domnească", new int[]{8, 15}, 4.3f, new double[]{0, 75, 90, 0, 85, 125},  new String[]{"ORL","Radiologie","Pediatrie","Psihiatrie"}));     
+       vecClinica.add(new Clinica("DC Clinic", "Strada Română 208", new int[]{9, 15}, 4.7f, new double[]{160, 195, 185, 230, 95, 265},  new String[]{"Oftamologie","ORL","Radiologie","Nutritionist","Pediatrie","Psihiatrie"}));     
+       vecClinica.add(new Clinica("MEDIMAGE", "Strada Anul Revoluției 1848 50", new int[]{9, 15}, 3.0f, new double[]{0, 0, 155, 210, 75, 0},  new String[]{"Radiologie","Nutritionist","Pediatrie"}));
+       ///---------------------------Prim Ajutor------------------------
+       ArrayList<PPA> vecPPA = new ArrayList<PPA>();
+         vecPPA.add(new PPA("SRAU", "Drumul de Centură 39", new int[]{0, 24}, 5.0f, new double[]{75, 0}, true, new String[]{"Cursuri","Prim Ajutor"}));
+         vecPPA.add(new PPA("Asociatia Pentru Ajutor Umanitar - AJUT", "Strada Dunarea 18", new int[]{7, 20}, 3.0f, new double[]{55, 0}, false, new String[]{"Cursuri","Prim Ajutor"}));
+         vecPPA.add(new PPA("Societatea Studenților Mediciniști Galați (SSMG)", "Str. Gării, nr. 59-61, Cămin IB - parter", new int[]{7, 20}, 4.8f, new double[]{0, 0}, false, new String[]{"Prim Ajutor"}));
+         vecPPA.add(new PPA("Crucea Roşie Galaţi ", "Strada Closca 13", new int[]{0, 24}, 4.8f, new double[]{130, 0}, true,new String[]{"Cursuri"}));
+         vecPPA.add(new PPA("Ajutor, nu mai pot", "Bulevardul Vise Frante", new int[]{0, 24}, 5.0f, new double[]{0, 0}, true, new String[]{"Prim Ajutor"}));
+         vecPPA.add(new PPA("Prim Ajutor in Caz de Urgente", "Aleea Domneasca", new int[]{9, 21}, 3.0f, new double[]{0, 0}, false, new String[]{"Cursuri"}));
+         vecPPA.add(new PPA("Prima Rugaciune", "Strada Brailei", new int[]{5, 24}, 3.8f, new double[]{40, 0}, false, new String[]{"Cursuri"}));
+         vecPPA.add(new PPA("Ajutor, CHIAR nu mai pot", "Drumul Ultimei Sperante", new int[]{0, 24}, 4.0f, new double[]{80, 0}, true, new String[]{"Cursuri","Prim Ajutor"}));
+         vecPPA.add(new PPA("Aia e Strict Problema ta", "Drumul de Centură 42", new int[]{0, 24}, 2.0f, new double[]{15, 5}, false, new String[]{"Cursuri","Prim Ajutor"}));
+         
+         ///---------------------------Restaurant------------------------
+         ArrayList<Restaurant> vecRestaurant = new ArrayList<Restaurant>();
+          vecRestaurant.add(new Restaurant("The Folly","restaurant & lounge","Bloc L1, Strada Domnească 13, Galați 800015", 4.1f,new int[]{9, 20}, 80,true,true,"degetele de pui cu cartofi prajiti si sos de usturoi ","mic dejun fitness","risotto cu creveti si dovlecei","Piept de pui cu sos gorgonzola","Cocktail Green Apple,Jagermeister,Bubble tea,Caramel Frappe,Kozel Dark (Draught)",true,true,pret1 ));
+          vecRestaurant.add(new Restaurant("MALU","restaurant & lounge & bar"," Strada Domnească 13, Galați 800015", 4.3f,new int[]{10, 18}, 128,true,true,"Tigaie cu fășii de vită, brocoli, cartofi dulci, alune sărate","avocado toast","Piept de rață cu reducție de fructe","Somon exotic la cuptor","Cocktail Sex on the beach,Vodka,mint tea,chocolate  Frappe,Peroni Nastro Azzurro - Draught",false,true,new double[]{56.7, 45.9, 50.0, 23.99}));
+          vecRestaurant.add(new Restaurant("Acquarello ","restaurant "," Strada Nicolae Bălcescu 25, Galați 800017", 4.5f,new int[]{11, 19}, 90,true,true,"Turnedo Rossini","Salmone Afumicato","Filetto alla pizzaiolo","Tagliattelle con gamberi","Cocktail Hugo,Ursus Retro,Peach Tea,Cosmopolitan,Apa Aqua Carpatica plata,Red Bull,Pepsi,Peroni Nastro Azzurro - Draught",false,true,new double[]{52.7, 87.9, 56.0, 18.99} ));
+          vecRestaurant.add(new Restaurant("CRAFT Rebel Food ","restaurant "," lângă CEC Bank, Complex Potcoava de Aur, Galați 800070", 4.5f,new int[]{9, 20}, 80,true,false," meniu cu pui tempura","Tigaie taraneasca(mic dejun)","ciorba de burta","muschiulet de porc in sos de piper verde","Cocktail Italian Gipsy,strawberry tea,Caffe Latte Viennese,Apa  perrier plata,Rockstar,Fanta,Corona",false,true,new double[]{36.7, 45.9, 57.6, 73.99} ));
+          vecRestaurant.add(new Restaurant("Union Jack ","restaurant & pub "," Strada Roșiori 1, Galați 800066", 4.5f,new int[]{12, 17}, 100,true,false," Cotlet de porc la cuptor cu piure și salata de varza, Sote de mazăre  cu piept de pui și castraveți murati ","U.J. Energy Bomb Breakfast","Kettle Fried Coquelet de Bretagne","Union Jack Skillet","Cocktail Cranberry Prosecco,Mojito,Long Island Iced Tea,Apa Minerala / Sparkling Water,Pepsi Max,Sprite,Peroni",false,false,new double[]{34.7, 89.9,55.0,34.9} ));
+          vecRestaurant.add(new Restaurant("Amadeus","restaurant  "," Strada Brăilei 157, Galați 800402", 4.5f,new int[]{11, 21}, 60,true,true,"Aripioare picante la grill cu dulceata de ardei iuti si cartofi pai ","Omletă cu verdeață","Ciorbă de vită, ardei iute, smântână","Salmone Zingarella","Margarita,Frappe cu inghetata / Iced coffee with ice-cream,Evervess,Espresso Dublu / Double Espresso,Apa Minerala / Sparkling Water,Limonada cu ghimbir / Lemonade with ginger,Coca Cola,apa plata izvorul muntelui,Hoegaarden",true,true,new double[]{55.0, 77.9, 34.9,35.8} ));
+          vecRestaurant.add(new Restaurant("STAGE - Nice Dining","restaurant  "," Strada General Alexandru Cernat 79, Galați 800105", 4.9f,new int[]{14, 20}, 110,false,true,"MUSCHI DE VITA PE PIATRA INCINSA","Bon Ton","VALDOSTANA DE CURCAN","MUSCHI DE VITA IN CRUSTA DE IERBURI PROVENSALE","Cuba Libre,Cappuccino,Apa Plata / Still Water,Prigat,Fresh Grapefruit / Fresh Squeezed Grapefruit Juice,Mythos,Blue Lagoon,Jack Daniels",false,true,new double[]{49.99, 67.90, 23.23, 12.90}));
+          vecRestaurant.add(new Restaurant("Ca Jou","restaurant  "," Strada Domnească Strada Domnească, nr. 100, Galați 800201", 4.5f,new int[]{9, 19}, 100,true,true,"MENIU CIORBA DE PESTE/PIPOTE LA CUPTOR","GOURMAND BREAKFAST","PASTRAV PRAJIT CU MUJDEI SI MAMALIGA","BEEFSTEAK SURF & TURF","Chivas Regal 12 yrs,Bombay Sapphire,Pina Colada,Heineken,Limonada cu menta si ghimbir / Lemonade with mint & ginger,Apa Plata / Still Water,Seven Up",false,true,new double[]{99.99, 67.45, 67.89,90.0} ));
+          vecRestaurant.add(new Restaurant("NOAH bar & lounge","restaurant  "," Aleea Faleza Dunării, Galați 800172", 3.4f,new int[]{9, 15}, 140,true,false,"MENIU CIORBA DE PESTE/PIPOTE LA CUPTOR","Omletă Primavera","Pârjoale moldovenești","Mâncare de varză călită cu coastă de porc","Mirinda,Fresh Mixt / Fresh Squeezed Mixt Juice,Carlsberg,Miami Beach,Mexicola",true,true,new double[]{78.90, 67.90, 45.99, 23.99} ));
+          vecRestaurant.add(new Restaurant("Blue Aqua","pescaresc","Bulevardul Marea Unire 75, Galați 827100", 4.4f,new int[]{10, 19}, 150,true,true,"ciorba de vacuta si friptura cu piure","ou cu bacon impreuna cu gemuri si branzeturi","ciorba de burta si icre de  peste","paste carbonara impreuna cu carne de vita la cuptor cu portocale","aperol spritz , rom,cola si apa minerala",false,false,new double[]{36.7, 45.9, 23.23, 12.90}  ));
         
-        
-        System.out.println("/Bine ati venit in Galati! \n");
+          ///---------------------------Restaurant------------------------
+                  ArrayList<Cafenele>vecCafenele = new ArrayList<Cafenele>();
+        vecCafenele.add(new Cafenele("FRESH","Bulevardul Basarabiei 20, Galați",4.8f,new int[]{11,20},false,"sandwich italian,sandwich cu sunca, sandwich rustic,sandwich cu ton,toast,sandwich grecesc,sandwich caesar","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{4.99, 7.90},true,true,true));
+        vecCafenele.add(new Cafenele("Old Town Coffee Shop","Strada Domnească 105, Galați 800201",5.0f,new int[]{9, 19},false,"sandwich pork,sandwich prosciutto, sandwich pollo,sandwich cu ton,sandwich veggie","cafea simpla,cafea cu lapte,cafea lunga,cappuccino,ciocolata calda alba/neagra,frappe,irish coffe,ceaiuri diferite arome,pepsi,sprite,apa minerala,apa plata",new double[]{78.90, 67.90},true,true,true));
+        vecCafenele.add(new Cafenele("Caffello","Strada Eroilor 39, Galați 800119",5.0f,new int[]{8, 17},false," ","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,frappe caramelizat,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{6.0, 8.99},true,false,true));
+        vecCafenele.add(new Cafenele("Shisha Caffe","Bloc Select, Strada Domnească 36, Galați 800008",4.2f,new int[]{12, 19},false,"","Espresso Scurt,Espresso Lung / Long Espresso,Cappuccino Amaretto,Espresso Americano,Caffe Latte Baileys,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{9.99, 8.99},true,false,true));
+        vecCafenele.add(new Cafenele("TED'S COFFEE CO.","Strada Domnească 29, Galați 800008",4.4f,new int[]{8, 19},true,"","Espresso / Double Espresso,Long Black,Caffe au Lait,Mochaccino,Coconut Macadamia Latte,Flavored Chocolate,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{10.0 , 15.55},true,false,true));
+        vecCafenele.add(new Cafenele("Atelierul de cafea","Bloc S3, Strada 1 Decembrie 1918 Parter, Galați 800251",4.7f,new int[]{9, 17},false," ","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{5.55 ,9.00},true,false,true));
+        vecCafenele.add(new Cafenele("Wise Cafe","Strada Domnească 13, Galați 827100",5.0f,new int[]{10, 17},false," ","cafea simpla,cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{10.50, 4.99},true,false,true));
+        vecCafenele.add(new Cafenele("L'amour Caffe","Strada Brăilei 200a, Galați 800337",5.0f,new int[]{9, 19},false,"sandwich cu sunca, sandwich rustic,sandwich cu ton,toast,","cafea simpla,cafea cu lapte,cafea lunga,fanta,cola,apa minerala,apa plata",new double[]{12.34, 5.66},true,true,true));
+        vecCafenele.add(new Cafenele("Amerijan Cafee","Str. Doctor Alexandru Carnabel, Galați",4.4f,new int[]{11, 20},false,"","cafea cu lapte,cafea lunga,,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{7.99, 9.99},true,false,true));
+        vecCafenele.add(new Cafenele("Dream Coffee Shop @Bălcescu","Nr.3k, Strada Nicolae Bălcescu, Galați 800041",4.8f,new int[]{13, 20},false,"sandwich cu sunca,sandwich cu ton,toast,sandwich grecesc,sandwich caesar",",cafea cu lapte,cafea lunga,cafea lunga cu lapte,frappe,irish coffe,fanta,cola,apa minerala,apa plata",new double[]{14.99, 8.80},true,true,true));
+             
+
+          
+          
+//System.out.println("/Bine ati venit in Galati! \n");
         
         boolean i=false ;
         while(i!=true){
-            in.nextLine();  
-             
+                in.nextLine();  
+                in.nextLine();  
         //System.out.println("Despre ce vreti sa aflati?" );
         Turism.menu();
         int raspuns = in.nextInt();
@@ -178,23 +322,24 @@ public class DemoTurism {
           
           break;
           case(2):
-              //Restaurant
+              System.out.println(vecRestaurant);
                 break;
           case(3):
               //Cafenea
-              System.out.println();
+              System.out.println(vecCafenele); 
               break;
           case (4):
               System.out.println(vecParcPublic);
               break;
            case(5):
-               System.out.println("1.Spital \n2.Clinica \n 3.Prim Ajutor");
+               System.out.println("1.Spital \n2.Clinica \n3.Prim Ajutor");
             int rasp1 = in.nextInt();
             if(rasp1==1)
-                System.out.println("Spital");//Spital
+                System.out.println(vecSpital);//Spital
             else if(rasp1 == 2)
-                System.out.println("Clinica");//Clinica
-            else System.out.println("Prim Ajutpr"); //Prim Ajutpr
+                System.out.println(vecClinica);//Clinica
+            else 
+                System.out.println(vecPPA); //Prim Ajutpr
               break;
               case(6):
                System.out.println(vecMuzeu);

@@ -90,12 +90,12 @@ public abstract class Turism {
         System.out.println("** 2. Restaurant **");
         System.out.println("** 3. Cafenele **  ");
         System.out.println("** 4. Parcuri publice **");
-        System.out.println("** 6. Spital de stat / Clinica privata **");
-        System.out.println("** 7. Muzeu **");
-        System.out.println("** 8. Case moemoriale **");
-        System.out.println("** 9. Afisati factura **");
-        System.out.println("** 10. Resetati **");
-        System.out.println("** 11. Parasiti meniul principal **");
+        System.out.println("** 5. Spital de stat / Clinica privata/Prim Ajutor **");
+        System.out.println("** 6. Muzeu **");
+        System.out.println("** 7. Case moemoriale **");
+        System.out.println("** 8. Afisati factura **");
+        System.out.println("** 9. Resetati **");
+        System.out.println("** 10. Parasiti meniul principal **");
     }
 
 }

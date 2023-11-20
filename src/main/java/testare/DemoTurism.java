@@ -11,6 +11,8 @@ import Hotel.Hotel;
 import Activitati.Muzeu;
 import Activitati.ParcPublic;
 import Mancare.Restaurant;
+import java.io.IOException;
+import yas.proiect.smart.Turism;
 
 /**
  *
@@ -18,7 +20,7 @@ import Mancare.Restaurant;
  */
 public class DemoTurism {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)throws IOException {
 
          
    //-----Restaurant
@@ -156,45 +158,59 @@ public class DemoTurism {
         
         
         
-        System.out.println("Bine ati venit in Galati! \n");
+        System.out.println("/Bine ati venit in Galati! \n");
+        
         boolean i=false ;
         while(i!=true){
-        System.out.println("Despre ce vreti sa aflati?" );
-        String raspuns = in.next();
+            in.nextLine();  
+             
+        //System.out.println("Despre ce vreti sa aflati?" );
+        Turism.menu();
+        int raspuns = in.nextInt();
         switch(raspuns){
-        case("Hotel"):
-          System.out.println(vectorHotel);  
+        case(1):
+            System.out.println("1.Apartament \n2.Hotel");
+            int rasp = in.nextInt();
+            if(rasp==1)
+                System.out.println(vectorApartament);
+            else 
+                System.out.println(vectorHotel);
+          
           break;
-          case("Apartament"):
-              System.out.println(vectorApartament);
+          case(2):
+              //Restaurant
                 break;
-          case("Restaurant"):
+          case(3):
+              //Cafenea
               System.out.println();
               break;
-          case ("Cafenea"):
-              System.out.println();
-              break;
-           case("Spital"):
-               System.out.println();
-              break;
-              case("Clinica"):
-               System.out.println();
-              break;
-              case("Prim Ajutor"):
-               System.out.println();
-              break;
-              case("Muzeu"):
-              System.out.println(vecMuzeu);
-              break;
-              case("Parc Public"):
+          case (4):
               System.out.println(vecParcPublic);
               break;
-              case("Casa memoriala"):
-               System.out.println(vecCasaMemoriala);    
+           case(5):
+               System.out.println("1.Spital \n2.Clinica \n 3.Prim Ajutor");
+            int rasp1 = in.nextInt();
+            if(rasp1==1)
+                System.out.println("Spital");//Spital
+            else if(rasp1 == 2)
+                System.out.println("Clinica");//Clinica
+            else System.out.println("Prim Ajutpr"); //Prim Ajutpr
               break;
-              case("Exit"):
-                i=false;
-                break;
+              case(6):
+               System.out.println(vecMuzeu);
+              break;
+              case(7):
+               System.out.println(vecCasaMemoriala);
+              break;
+              case(8):
+              System.out.println("Factura");
+              break;
+              case(9):
+              System.out.println("Reset");
+              break;
+              case(10):
+               i = true;    
+              break;
               default:
                   System.out.println("Nu am gasit");
         }

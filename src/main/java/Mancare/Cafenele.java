@@ -34,9 +34,9 @@ public class Cafenele extends Restaurant
 
     @Override
     public String toString() {
-       return " Cafeneaua "+nume+" situata la adresa "+adresa+" cu un rating de "+rating+" . "+
-              " Programul incepe de la "+program[0]+" pana la "+program[1]+" . "+
-              " Meniul cu sandwich este "+meniulzilei+" si meniul de cafele/bauturi este "+bauturi;
+       return " Cafeneaua "+nume+" situata la adresa "+adresa+" cu un rating de "+rating+" .\n "+
+              " Programul incepe de la "+program[0]+" pana la "+program[1]+" .\n "+
+              " Meniul cu sandwich este "+meniulzilei+" si meniul de cafele/bauturi este "+bauturi+"\n\n";
     }
 
   

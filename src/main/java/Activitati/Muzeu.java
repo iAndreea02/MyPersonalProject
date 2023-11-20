@@ -74,6 +74,7 @@ public class Muzeu extends Turism {
     m.put("Carti",pret[5]);
         return m.get(nume);
     }
+   
     //Shop +Poze
     public void vreaPoze() {
         System.out.println("Taxa de poze este : " + pret[2]);

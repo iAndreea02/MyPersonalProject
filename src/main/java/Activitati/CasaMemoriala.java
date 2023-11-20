@@ -81,7 +81,7 @@ public class CasaMemoriala extends Turism {
 
     @Override
     public String toString() {
-        return super.toString() +"\nTip cladire: "+this.tipCladire +"\n Autor: " + Proprietar+"\nEveniment memorial: "+this.EvenimentMemorial+"\n\n";
+        return super.toString() +"\nTip cladire: "+this.tipCladire +"\n Autor: " + Proprietar+"\nEveniment memorial: "+this.EvenimentMemorial+"\n Ghid: "+(ghid?"Da":"Nu")+"\n\n";
     }
 
 }

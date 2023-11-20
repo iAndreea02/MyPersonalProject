@@ -82,7 +82,7 @@ public abstract class Turism {
 
    
 
-    public static void menu() {
+    public final static void menu() {
         System.out.println("**Bine ati venit in orasul Galati**");
         System.out.println("\nAcesta va fi meniul principal de unde va puteti alege activitatile zilnice");
         System.out.println("Distractie placuata!:)");

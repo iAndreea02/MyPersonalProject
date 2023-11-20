@@ -1,28 +1,32 @@
 package yas.proiect.smart;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Spital extends Turism{
     public String tipServiciu;
     public String domeniu;
+    public String[] servicii;
    
     public Spital() 
     {
         super();
-        tipServiciu=" ";
         domeniu=" ";
+        servicii=new String[]{"Nimic"};
     }
 
-    public Spital(String tipServiciu, String domeniu, String nume, String adresa, int[] program, float rating, double[] pret)
+    public Spital(String nume, String adresa, int[] program, float rating, double[] pret, String domeniu, String[] servicii)
     {
         super(nume, adresa, program, rating, pret);
-        this.tipServiciu=tipServiciu;
+        this.domeniu=domeniu;
+        this.servicii=servicii;
     }
 
     public Spital(Spital copie)
     {
         super(copie);
-        tipServiciu=copie.tipServiciu;
+        domeniu=copie.domeniu;
+        servicii=copie.servicii;
     }
     
     public double preturi(String tipServiciu)
@@ -34,14 +38,14 @@ public class Spital extends Turism{
     m.put("ORL",pret[3]);
     m.put("Boli Infectioase",pret[4]);
     m.put("Radiologie",pret[5]);
-    m.put("Stomatologie",pret[6]);
+    m.put("Psihiatrie",pret[6]);
     m.put("Pediatrie",pret[7]);
     m.put("Cardiologie",pret[8]);
         return m.get(tipServiciu);
     }
     
-    public void serviciiDorite(int nrCopii, int nrAdulti, String trimitereMedicala) throws Exception
-    {
+    public void serviciiDorite(int nrCopii, int nrAdulti, String trimitereMedicala,String tipServiciu) throws Exception
+    {   this.tipServiciu=tipServiciu;
         System.out.println("Ati ales serviciile sanitare la: " +nume+" serviciul "+tipServiciu);
         
         if(nrCopii!=0)
@@ -105,7 +109,7 @@ public class Spital extends Turism{
     @Override
         public String toString()
     {
-        return super.toString() + "\nTip serviciu: " + tipServiciu;
+        return super.toString() + "\nTip serviciu oferite: " +  Arrays.toString(servicii);
     }
     
 }

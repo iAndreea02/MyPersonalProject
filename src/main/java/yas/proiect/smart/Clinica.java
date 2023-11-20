@@ -1,26 +1,28 @@
-
 package yas.proiect.smart;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Clinica extends Turism {
     
     private String specializare;
+    public double[] pret;
+    public String[] servicii;
     
     public Clinica()
     {
         super();
-        specializare="";
+        servicii=new String[]{"Nimic"};
     }
     
-    public Clinica(String nume, String adresa, int program[], float rating, double[] pret, String specializare) {
+    public Clinica(String nume, String adresa, int program[], float rating, double[] pret, String[] servicii) {
         super(nume, adresa, program, rating, pret);
-        this.specializare = specializare;
+        this.servicii=servicii;
     }
 
     public Clinica(Clinica copie) {
         super(copie);
-        specializare = copie.specializare;
+        servicii=copie.servicii;
     }
   
      public double preturi(String specializare){
@@ -30,7 +32,7 @@ public class Clinica extends Turism {
     m.put("Radiologie",pret[2]);
     m.put("Nutritionist",pret[3]);
     m.put("Pediatrie",pret[4]);
-    m.put("Psihoterapie",pret[5]);
+    m.put("Psihiatrie",pret[5]);
         return m.get(specializare);
     }
     
@@ -82,6 +84,6 @@ public class Clinica extends Turism {
     
     @Override
     public String toString() {
-        return super.toString() + "\nSpecializare: " + specializare;
+        return super.toString() + "\nSpecializari oferite : " + Arrays.toString(servicii);
     }
 }

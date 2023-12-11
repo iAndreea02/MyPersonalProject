@@ -1,6 +1,7 @@
 
 package Mancare;
 
+import java.util.ArrayList;
 import yas.proiect.smart.Turism;
 
 
@@ -9,9 +10,9 @@ public class Restaurant extends Turism {
 int locurilibere;
 boolean animaldecompanie;
 boolean persoanefumatoare;
-String tiprestaurant;
-boolean terasa;
-boolean codvestimentar;
+public String tiprestaurant;
+public boolean terasa;
+public boolean codvestimentar;
 String meniulzilei;
 String micdejun,pranz,cina;
 String bauturi;
@@ -65,10 +66,10 @@ bauturi=copie.bauturi;
 }
 public String toString(){
 
-return "Restaurantul "+nume+" cu specificul "+tiprestaurant+" situat la adresa "+adresa+" cu rating-ul nu mai putin de "+rating+" are deschiderea la ora "+program[0]+" si se va inchide la ora "+program[1]+ ".\n"+
+return "\nRestaurantul "+nume+" cu specificul "+tiprestaurant+" situat la adresa "+adresa+" cu rating-ul nu mai putin de "+rating+" are deschiderea la ora "+program[0]+" si se va inchide la ora "+program[1]+ ".\n"+
        " Acesta detine "+locurilibere+" de locuri libere , "+
        " Meniul zilei contine "+meniulzilei+"sau daca doriti avem un meniu diversificat care contine:micdejun "+micdejun+" ,pranz "+pranz+" cina "+cina+
-       " si cu bauturi aferente "+bauturi+" .";
+       " si cu bauturi aferente "+bauturi+" .\n\n";
 
 }
 public void afiseaza()
@@ -91,5 +92,11 @@ else
         System.out.println("Restaurantul nu accepta persoane cu un cod vestimentar de tip sport sau plaja");
 
 }
-
+   public static void Terasa_codvestimentar(ArrayList<Restaurant> vecRestaurant, boolean terasa, boolean codvestimentar) {
+        for (Restaurant restaurant : vecRestaurant) {
+            if (restaurant.terasa == terasa && restaurant.codvestimentar == codvestimentar) {
+                System.out.println(restaurant);
+            }
+        }
+    }
 }

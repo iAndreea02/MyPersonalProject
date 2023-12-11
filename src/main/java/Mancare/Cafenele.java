@@ -1,12 +1,14 @@
 
 package Mancare;
 
+import java.util.ArrayList;
+
 
 public class Cafenele extends Restaurant
 {
- boolean serviciucoffe_to_go ;
- boolean sandwich ;
- boolean servire_rapida;
+ public boolean serviciucoffe_to_go ;
+ public boolean sandwich ;
+ public boolean servire_rapida;
  
  public Cafenele() 
          
@@ -57,8 +59,14 @@ public class Cafenele extends Restaurant
   }
   
     
+    public static void servire_sandwich(ArrayList<Cafenele> vecCafenele, boolean sandwich, boolean servire_rapida) {
+        for (Cafenele cafenele : vecCafenele) {
+            if (cafenele.sandwich == sandwich && cafenele.servire_rapida == servire_rapida) {
+                System.out.println(cafenele);
+            }
+        }
     
-    
+    }
     
     
     

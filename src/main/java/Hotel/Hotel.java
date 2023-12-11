@@ -4,6 +4,7 @@
  */
 package Hotel;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import yas.proiect.smart.Turism;
 import yas.proiect.smart.Turism;
@@ -135,5 +136,13 @@ public class Hotel extends Turism{
     public void setAnimale(boolean animale) {
         this.animale = animale;
     }
-   
+     public static void AfisareRating (ArrayList<Hotel> vectorHotel,float rating, boolean piscina){
+      
+      
+      for(Hotel hotel:vectorHotel){
+         if(hotel.rating>rating && hotel.piscina==piscina) 
+             System.out.println(hotel);
+      }
+      
+  }
 }

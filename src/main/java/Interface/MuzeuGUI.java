@@ -35,14 +35,18 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
         DateCity.addVectori();
         jPanel1.setVisible(false);
         pretPoze.setVisible(false);
+         valDonare.setVisible(false);
         meniuSuvenir.setVisible(false);
         pretCarti.setVisible(false);
         pretBreloc.setVisible(false);
         pretMagneti.setVisible(false);
         Option.setVisible(false);
-        valDonare.setVisible(false);
         Fcaturarea.setVisible(false);
-        
+         ListProgram.addItem("sa inceapa de");
+            ListProgram.addItem("sa se termine de");
+             ListTIp.addItem("Istorie");
+            ListTIp.addItem("Arte");
+            ListTIp.addItem("Stiinte ale naturii");
         FacturaText.setText("-----------------Factura la muzeu-----------------");
         FacturaText.append("\n**Nr de copii: "+nrCopii+" **\n**Nr de adulti: "+nrAdulti+" **");
     }
@@ -62,6 +66,7 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         FacturaText = new javax.swing.JTextArea();
         jDownload = new javax.swing.JToggleButton();
+        jFactura = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
         jButton2 = new javax.swing.JButton();
@@ -116,18 +121,29 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
             }
         });
 
+        jFactura.setText("Facturare");
+        jFactura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFacturaMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout FcaturareaLayout = new javax.swing.GroupLayout(Fcaturarea.getContentPane());
         Fcaturarea.getContentPane().setLayout(FcaturareaLayout);
         FcaturareaLayout.setHorizontalGroup(
             FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FcaturareaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FcaturareaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jDownload)
-                .addGap(16, 16, 16))
+                .addGroup(FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FcaturareaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jFactura)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDownload)
+                        .addGap(16, 16, 16))
+                    .addGroup(FcaturareaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         FcaturareaLayout.setVerticalGroup(
             FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +151,9 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jDownload)
+                .addGroup(FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDownload)
+                    .addComponent(jFactura))
                 .addContainerGap())
         );
 
@@ -394,23 +412,23 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
                         .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(pretPoze)
                             .addComponent(jPoze))
-                        .addGap(42, 42, 42)
+                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OptionLayout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(jLabel4)
+                                .addGap(27, 27, 27)
+                                .addComponent(valDonare, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(OptionLayout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jDonare)))
+                        .addGap(35, 35, 35)
                         .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSuvenir)
-                            .addGroup(OptionLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(meniuSuvenir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(12, 12, 12)
-                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(OptionLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(valDonare, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jDonare)))
+                            .addComponent(meniuSuvenir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(OptionLayout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addComponent(Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(21, 21, Short.MAX_VALUE))
+                .addGap(56, 56, Short.MAX_VALUE))
         );
         OptionLayout.setVerticalGroup(
             OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,16 +438,20 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jPoze))
                     .addGroup(OptionLayout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jSuvenir)
-                            .addComponent(jDonare))
+                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(OptionLayout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(jSuvenir))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OptionLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jDonare)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(valDonare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(pretPoze)
-                            .addComponent(meniuSuvenir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(meniuSuvenir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(OptionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel4)
+                                .addComponent(pretPoze))
+                            .addComponent(valDonare, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Factura, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
@@ -515,13 +537,7 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (FiltruButton.isSelected()) {
             jPanel1.setVisible(true);
-
-            ListProgram.addItem("sa inceapa de");
-            ListProgram.addItem("sa se termine de");
-
-            ListTIp.addItem("Istorie");
-            ListTIp.addItem("Arte");
-            ListTIp.addItem("Stiinte ale naturii");
+           
         } else
             jPanel1.setVisible(false);
     }//GEN-LAST:event_FiltruButtonActionPerformed
@@ -554,11 +570,12 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int ora = Integer.parseInt(OraText.getText());
         listModel.clear();
-        for (int i = 0; i < DateCity.vecMuzeu.size(); i++) {
-            if (ListProgram.getSelectedIndex() == 0 && (DateCity.vecMuzeu.get(i).program[0] >= ora && DateCity.vecMuzeu.get(i).tipul == ListTIp.getSelectedItem())) {
-                listModel.addElement(DateCity.vecMuzeu.get(i).nume);
-            } else if (ListProgram.getSelectedIndex() == 1 && (DateCity.vecMuzeu.get(i).program[1] < ora && DateCity.vecMuzeu.get(i).tipul == ListTIp.getSelectedItem())) {
-                listModel.addElement(DateCity.vecMuzeu.get(i).nume);
+        for (Muzeu muz : DateCity.vecMuzeu) {
+            if (ListProgram.getSelectedIndex() == 0 && muz.program[0] >= ora || 
+                    ListProgram.getSelectedIndex() == 1 && muz.program[1] < ora  ) {
+                
+            if (muz.tipul == ListTIp.getSelectedItem()) 
+                listModel.addElement(muz.nume);
             }
 
         }
@@ -709,6 +726,14 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jDownloadActionPerformed
 
+    private void jFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFacturaMouseClicked
+        // TODO add your handling code here:
+        MenuPrincipal.setBill(muzBilet.getBill());
+        muzBilet.reset();
+        dispose();
+        
+    }//GEN-LAST:event_jFacturaMouseClicked
+
     //functie de a gasi mai repede muzue\\
     private Muzeu findMuzeu(String nume) {
         for (int i = 0; i < 10; i++) {
@@ -737,6 +762,7 @@ public class MuzeuGUI extends javax.swing.JInternalFrame {
     private javax.swing.JCheckBox jCarti;
     private javax.swing.JRadioButton jDonare;
     private javax.swing.JToggleButton jDownload;
+    private javax.swing.JButton jFactura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

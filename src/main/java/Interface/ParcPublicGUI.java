@@ -5,6 +5,14 @@
  */
 package Interface;
 
+import Activitati.*;
+import datele_mele.DateCity;
+
+import java.awt.Font;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 /**
@@ -13,14 +21,45 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
  */
 public class ParcPublicGUI extends javax.swing.JInternalFrame {
 
-   
-    public ParcPublicGUI() {
+    DefaultListModel<String> listModel = new DefaultListModel<>();
+    // double bill = 0.0;
+    int nrCopii;
+    int nrAdulti;
+    ParcPublic parc;
+
+    public ParcPublicGUI(int nrCopii, int nrAdulti) {
         initComponents();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+
+        this.nrCopii = nrCopii;
+        this.nrAdulti = nrAdulti;
+        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        
+        DateCity.addVectori();
+        jPanel1.setVisible(false);
+        pretWC.setVisible(false);
+        pretBicicleta.setVisible(false);
+        Option.setVisible(false);
+        Fcaturarea.setVisible(false);
+        jTextArea1.setVisible(false);
+        jAfis.setVisible(false);
+        jBilet.setVisible(false);
+        jSetOra.setVisible(false);
+        LOra.setVisible(false);
+        jNrAdulti.setVisible(false);
+        jNrCopii.setVisible(false);
+        adulti.setVisible(false);
+        copii.setVisible(false);
+        FacturaText.setText("-----------------Factura la Parc Public-----------------");
+        FacturaText.append("\n**Nr de copii: " + nrCopii + " **\n**Nr de adulti: " + nrAdulti + " **");
+        ListProgram.addItem("sa inceapa de");
+            ListProgram.addItem("sa se termine de");
     }
+
+    ParcPublicGUI() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,41 +69,553 @@ public class ParcPublicGUI extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jLabel8 = new javax.swing.JLabel();
+        Fcaturarea = new javax.swing.JFrame();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        FacturaText = new javax.swing.JTextArea();
+        jDownload = new javax.swing.JToggleButton();
+        jFinish = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jButton2 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        FiltruButton = new javax.swing.JToggleButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        ListProgram = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        OraText = new javax.swing.JTextField();
+        afisFiltru = new javax.swing.JButton();
+        jToaleta = new javax.swing.JCheckBox();
+        Option = new javax.swing.JPanel();
+        jWC = new javax.swing.JRadioButton();
+        jBike = new javax.swing.JRadioButton();
+        Factura = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        pretWC = new javax.swing.JLabel();
+        pretBicicleta = new javax.swing.JLabel();
+        jSetOra = new javax.swing.JTextField();
+        LOra = new javax.swing.JLabel();
+        jNrAdulti = new javax.swing.JSpinner();
+        jNrCopii = new javax.swing.JSpinner();
+        adulti = new javax.swing.JLabel();
+        copii = new javax.swing.JLabel();
+        jBilet = new javax.swing.JToggleButton();
+        jAfis = new javax.swing.JLabel();
+        jNume = new javax.swing.JLabel();
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("jLabel5");
 
-        setBackground(new java.awt.Color(255, 204, 153));
+        Fcaturarea.setTitle("Factura mea");
+        Fcaturarea.setForeground(java.awt.Color.darkGray);
+        Fcaturarea.setMinimumSize(new java.awt.Dimension(400, 490));
+        Fcaturarea.setType(java.awt.Window.Type.POPUP);
+
+        FacturaText.setEditable(false);
+        FacturaText.setBackground(new java.awt.Color(255, 255, 255));
+        FacturaText.setColumns(20);
+        FacturaText.setRows(5);
+        jScrollPane3.setViewportView(FacturaText);
+
+        jDownload.setText("Download");
+        jDownload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDownloadActionPerformed(evt);
+            }
+        });
+
+        jFinish.setText("Finalizare");
+        jFinish.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jFinishMouseClicked(evt);
+            }
+        });
+        jFinish.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFinishActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout FcaturareaLayout = new javax.swing.GroupLayout(Fcaturarea.getContentPane());
+        Fcaturarea.getContentPane().setLayout(FcaturareaLayout);
+        FcaturareaLayout.setHorizontalGroup(
+            FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FcaturareaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FcaturareaLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jFinish)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jDownload)
+                        .addGap(16, 16, 16))
+                    .addGroup(FcaturareaLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+                        .addContainerGap())))
+        );
+        FcaturareaLayout.setVerticalGroup(
+            FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(FcaturareaLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(FcaturareaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDownload)
+                    .addComponent(jFinish))
+                .addContainerGap())
+        );
+
+        setBackground(new java.awt.Color(153, 204, 255));
         setPreferredSize(new java.awt.Dimension(722, 473));
         setVisible(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Parc Public");
+        jList1.setBackground(new java.awt.Color(0, 204, 204));
+        jList1.setMaximumSize(new java.awt.Dimension(205, 168));
+        jList1.setMinimumSize(new java.awt.Dimension(205, 168));
+        jList1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jList1KeyPressed(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jList1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addContainerGap(595, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(jLabel1)
-                .addContainerGap(392, Short.MAX_VALUE))
-        );
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 303, 200));
+
+        jButton2.setText("Afisare");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 74, -1, -1));
+
+        jButton1.setText("Reset");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 102, -1, -1));
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setBackground(new java.awt.Color(153, 255, 255));
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setAutoscrolls(false);
+        jTextArea1.setOpaque(false);
+        jScrollPane2.setViewportView(jTextArea1);
+        jTextArea1.getAccessibleContext().setAccessibleName("Afisare");
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 46, 258, 110));
+
+        FiltruButton.setText("Filtru");
+        FiltruButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FiltruButtonMouseClicked(evt);
+            }
+        });
+        FiltruButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FiltruButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(FiltruButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(377, 46, 72, -1));
+
+        jPanel1.setOpaque(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Toaleta");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        ListProgram.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        ListProgram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListProgramActionPerformed(evt);
+            }
+        });
+        jPanel1.add(ListProgram, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 105, -1));
+
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Program");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 9, 62, -1));
+
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("la ora");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
+
+        OraText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OraTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(OraText, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
+
+        afisFiltru.setText("Filtreaza!");
+        afisFiltru.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                afisFiltruMouseClicked(evt);
+            }
+        });
+        afisFiltru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                afisFiltruActionPerformed(evt);
+            }
+        });
+        jPanel1.add(afisFiltru, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, -1, -1));
+        jPanel1.add(jToaleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 360, 100));
+
+        Option.setBackground(new java.awt.Color(0, 153, 153));
+        Option.setAutoscrolls(true);
+        Option.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Option.setFocusCycleRoot(true);
+        Option.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jWC.setForeground(new java.awt.Color(255, 255, 255));
+        jWC.setText("Toaleta");
+        jWC.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jWCStateChanged(evt);
+            }
+        });
+        jWC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jWCActionPerformed(evt);
+            }
+        });
+        Option.add(jWC, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 18, -1, -1));
+
+        jBike.setForeground(new java.awt.Color(255, 255, 255));
+        jBike.setText("Biciclete de inchiriat");
+        jBike.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBikeActionPerformed(evt);
+            }
+        });
+        Option.add(jBike, new org.netbeans.lib.awtextra.AbsoluteConstraints(115, 18, -1, -1));
+
+        Factura.setText("Factura");
+        Factura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                FacturaMouseClicked(evt);
+            }
+        });
+        Factura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FacturaActionPerformed(evt);
+            }
+        });
+        Option.add(Factura, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 199, 28));
+        Option.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 51, -1, -1));
+
+        pretWC.setForeground(new java.awt.Color(255, 255, 255));
+        pretWC.setText("Pret ");
+        Option.add(pretWC, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 44, -1, -1));
+
+        pretBicicleta.setForeground(new java.awt.Color(255, 255, 255));
+        pretBicicleta.setText("Pret");
+        Option.add(pretBicicleta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, -1, -1));
+
+        jSetOra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSetOraActionPerformed(evt);
+            }
+        });
+        Option.add(jSetOra, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 60, -1, -1));
+
+        LOra.setText("ora");
+        Option.add(LOra, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+        Option.add(jNrAdulti, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
+        Option.add(jNrCopii, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+
+        adulti.setText("adulti");
+        Option.add(adulti, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+
+        copii.setText("copii");
+        Option.add(copii, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, -1, -1));
+
+        getContentPane().add(Option, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 390, 170));
+
+        jBilet.setText("Cumpar Bilet");
+        jBilet.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBiletActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jBilet, new org.netbeans.lib.awtextra.AbsoluteConstraints(455, 162, -1, -1));
+
+        jAfis.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jAfis.setForeground(new java.awt.Color(255, 255, 255));
+        jAfis.setText("Afisare");
+        getContentPane().add(jAfis, new org.netbeans.lib.awtextra.AbsoluteConstraints(475, 15, -1, -1));
+
+        jNume.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jNume.setForeground(new java.awt.Color(255, 255, 255));
+        jNume.setText("Parc Public");
+        jNume.setIconTextGap(2);
+        jNume.setMaximumSize(new java.awt.Dimension(107, 50));
+        getContentPane().add(jNume, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
+        jNume.getAccessibleContext().setAccessibleName("jNume");
+
+        getAccessibleContext().setAccessibleName("jCasaMemoriala");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ListProgramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListProgramActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_ListProgramActionPerformed
+
+    private void OraTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OraTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OraTextActionPerformed
+
+    private void FiltruButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FiltruButtonActionPerformed
+        // TODO add your handling code here:
+        if (FiltruButton.isSelected()) {
+            jPanel1.setVisible(true);
+
+            
+
+        } else
+            jPanel1.setVisible(false);
+    }//GEN-LAST:event_FiltruButtonActionPerformed
+
+    private void FiltruButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FiltruButtonMouseClicked
+        // TODO add your handling code here:
+
+
+    }//GEN-LAST:event_FiltruButtonMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        System.out.println(nrCopii + " " + nrAdulti);
+
+        jAfis.setVisible(true);
+        jBilet.setVisible(true);
+        jTextArea1.setText(findParcPublic(jList1.getSelectedValue()).toString());
+        jTextArea1.setCaretPosition(0); //mentine cursorul in partea sus
+        jTextArea1.setVisible(true);
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void afisFiltruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_afisFiltruActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_afisFiltruActionPerformed
+
+    private void afisFiltruMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_afisFiltruMouseClicked
+        // TODO add your handling code here:
+        
+        listModel.clear();
+   
+        //boolean toaletaCondition = jToaleta.isSelected() && parc.nrToalete > 0;
+        // boolean noToaletaCondition = !jToaleta.isSelected() && parc.nrToalete < 0;
+       for (ParcPublic parc1 : DateCity.vecParcPublic) {
+                int selectedProgramIndex = ListProgram.getSelectedIndex();
+             int ora = Integer.parseInt(OraText.getText());
+    // Verificați intervalul de timp
+    if ((selectedProgramIndex == 0 && parc1.program[0] >= ora) || 
+        (selectedProgramIndex == 1 && parc1.program[1] < ora)) {
+
+        // Verificați condițiile pentru toalete
+        if ((jToaleta.isSelected() && parc1.nrToalete > 0) || 
+            (!jToaleta.isSelected() && parc1.nrToalete == 0)) {
+            listModel.addElement(parc1.nume);
+         
+       }
+    }
+       }
+        jList1.setModel(listModel);
+
+    }//GEN-LAST:event_afisFiltruMouseClicked
+
+    private void jList1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jList1KeyPressed
+        // TODO add your handling code here:
+        listModel.clear();
+        for (int i = 0; i < 10; i++) {
+            listModel.addElement(DateCity.vecParcPublic.get(i).nume);
+        }
+        jList1.setModel(listModel);
+    }//GEN-LAST:event_jList1KeyPressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        listModel.clear();
+        jList1.setModel(listModel);
+        jTextArea1.setText("");
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jWCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jWCActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jWCActionPerformed
+
+    private void jWCStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jWCStateChanged
+        // TODO add your handling code here:
+        if (jWC.isSelected()) {
+            if (parc.nrToalete > 0) {
+                pretWC.setText("Pret poze: " + parc.showThatPrice("Toaleta") + " lei");
+            } else {
+                pretWC.setText("Nu avem toalete :(");
+            }
+            pretWC.setVisible(true);
+        } else {
+            pretWC.setVisible(false);
+        }
+
+
+    }//GEN-LAST:event_jWCStateChanged
+
+    private void jBiletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBiletActionPerformed
+        // TODO add your handling code here:
+        if (jBilet.isSelected()) {
+            Option.setVisible(true);
+            parc = new ParcPublic(findParcPublic(jList1.getSelectedValue()));
+            parc.vreaSaIntre(nrCopii, nrAdulti);
+            System.out.println(parc.getBill());
+
+        } else {
+            parc.resetBill();
+            Option.setVisible(false);
+        }
+
+    }//GEN-LAST:event_jBiletActionPerformed
+
+    private void jBikeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBikeActionPerformed
+        // TODO add your handling code here:
+        if (jBike.isSelected()) {
+            double pret1 = parc.showThatPrice("Bicicleta");
+            pretBicicleta.setText(pret1 + " lei/pe ora ");
+            jSetOra.setVisible(true);
+        LOra.setVisible(true);
+        jNrAdulti.setVisible(true);
+        jNrCopii.setVisible(true);
+        adulti.setVisible(true);
+        copii.setVisible(true);
+            pretBicicleta.setVisible(true);
+
+        } else{
+            pretBicicleta.setVisible(false);
+            jSetOra.setVisible(false);
+        LOra.setVisible(false);
+        jNrAdulti.setVisible(false);
+        jNrCopii.setVisible(false);
+        adulti.setVisible(false);
+        copii.setVisible(false);
+        }
+    }//GEN-LAST:event_jBikeActionPerformed
+
+    private void FacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_FacturaMouseClicked
+        // TODO add your handling code here:
+        FacturaText.append("\nBilet................................ " + parc.getValBilet(nrCopii, nrAdulti));
+        if (jWC.isSelected()) {
+            parc.folosescToaleta();
+            FacturaText.append("\nToaleta................................ " + parc.showThatPrice("Toaleta"));
+        }
+        if (jBike.isSelected()) {
+             int jcopii=Integer.parseInt(jNrCopii.getValue().toString());
+             int jadulti=Integer.parseInt(jNrAdulti.getValue().toString());
+            parc.inchiriezBicicleta(Integer.parseInt(jSetOra.getText()), jadulti, jcopii, parc.reducere);
+           
+            FacturaText.append("\nBicicleta + reducere la copii: " + parc.reducere + "%................................ " + parc.getBike(Integer.parseInt(jSetOra.getText()), jadulti, jcopii, parc.reducere));
+        }
+
+        //bill=casaBilet.getBill();
+//        System.out.println(bill);
+        FacturaText.append("\n-------------------------------------------------------------------");
+        FacturaText.append("\n                                    TOTAL: " + parc.getBill());
+        FacturaText.setFont(new Font("Times new roman", Font.BOLD, 18));
+        Fcaturarea.setVisible(true);
+    }//GEN-LAST:event_FacturaMouseClicked
+
+    private void jDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDownloadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jDownloadActionPerformed
+
+    private void FacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_FacturaActionPerformed
+
+    private void jFinishMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFinishMouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jFinishMouseClicked
+
+    private void jFinishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFinishActionPerformed
+        // TODO add your handling code here:
+        MenuPrincipal.setBill(parc.getBill());
+        parc.reset();
+        dispose();
+    }//GEN-LAST:event_jFinishActionPerformed
+
+    private void jSetOraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSetOraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jSetOraActionPerformed
+
+    //functie de a gasi mai repede muzue\\
+    private ParcPublic findParcPublic(String nume) {
+        for (int i = 0; i < 10; i++) {
+            if (DateCity.vecParcPublic.get(i).nume == nume) {
+                return DateCity.vecParcPublic.get(i);
+            }
+        }
+        return new ParcPublic();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JButton Factura;
+    private javax.swing.JTextArea FacturaText;
+    public javax.swing.JFrame Fcaturarea;
+    private javax.swing.JToggleButton FiltruButton;
+    private javax.swing.JLabel LOra;
+    private javax.swing.JComboBox<String> ListProgram;
+    private javax.swing.JPanel Option;
+    private javax.swing.JTextField OraText;
+    private javax.swing.JLabel adulti;
+    private javax.swing.JButton afisFiltru;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel copii;
+    private javax.swing.JLabel jAfis;
+    private javax.swing.JRadioButton jBike;
+    private javax.swing.JToggleButton jBilet;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JToggleButton jDownload;
+    public javax.swing.JButton jFinish;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JSpinner jNrAdulti;
+    private javax.swing.JSpinner jNrCopii;
+    private javax.swing.JLabel jNume;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField jSetOra;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JCheckBox jToaleta;
+    private javax.swing.JRadioButton jWC;
+    private javax.swing.JLabel pretBicicleta;
+    private javax.swing.JLabel pretWC;
     // End of variables declaration//GEN-END:variables
 }

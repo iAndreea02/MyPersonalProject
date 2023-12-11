@@ -20,13 +20,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     Color colorCurrent ;
     Color colorDefault;
     public int copii,adulti;
-    
+    public static double jbill=0.0;
     public MenuPrincipal() {
         colorCurrent = new Color(255,153,51);
         colorDefault = new Color(255,102,51);
         initComponents();
     }
-
+    
+    public static void setBill(double bill){
+    jbill+=bill;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,11 +41,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        nrCopii = new javax.swing.JSpinner();
-        nrAdulti = new javax.swing.JSpinner();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jOkey = new javax.swing.JButton();
+        jFactura = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jBill = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -55,58 +57,45 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 51));
 
-        nrCopii.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                nrCopiiStateChanged(evt);
-            }
-        });
-
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Copii:");
-
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Adulti");
-
-        jOkey.setText("Okey");
-        jOkey.addMouseListener(new java.awt.event.MouseAdapter() {
+        jFactura.setText("Factura");
+        jFactura.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jOkeyMouseClicked(evt);
+                jFacturaMouseClicked(evt);
             }
         });
+        jFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFacturaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Pret");
+
+        jBill.setText("jLabel7");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nrAdulti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nrCopii, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jOkey, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jFactura)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jBill)
+                .addGap(31, 31, 31))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nrCopii, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nrAdulti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
+                    .addComponent(jFactura)
+                    .addComponent(jLabel6)
+                    .addComponent(jBill))
                 .addContainerGap(17, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jOkey)
-                .addGap(31, 31, 31))
         );
 
         jPanel3.setBackground(new java.awt.Color(255, 102, 51));
@@ -361,29 +350,31 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jPanel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel5MouseClicked
         // TODO add your handling code here:
-        ParcPublicGUI M2 = new ParcPublicGUI();
+         CasaMemGUI M3 = new  CasaMemGUI(copii,adulti);
         jDesktopPane1.removeAll();
-        jDesktopPane1.add(M2).setVisible(true);
+        jDesktopPane1.add(M3).setVisible(true);
+        
+        
+        
+    
     }//GEN-LAST:event_jPanel5MouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
         // TODO add your handling code here:
-        CasaMemGUI M3 = new  CasaMemGUI();
+           ParcPublicGUI M2 = new ParcPublicGUI(copii,adulti);
         jDesktopPane1.removeAll();
-        jDesktopPane1.add(M3).setVisible(true);
+        jDesktopPane1.add(M2).setVisible(true);
     }//GEN-LAST:event_jPanel6MouseClicked
 
-    private void nrCopiiStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_nrCopiiStateChanged
+    private void jFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFacturaActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_nrCopiiStateChanged
+       
+    }//GEN-LAST:event_jFacturaActionPerformed
 
-    private void jOkeyMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jOkeyMouseClicked
+    private void jFacturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jFacturaMouseClicked
         // TODO add your handling code here:
-        copii=Integer.parseInt(nrCopii.getValue().toString());
-        adulti=Integer.parseInt(nrAdulti.getValue().toString());
-        //System.out.println(copii+" "+adulti);
-    }//GEN-LAST:event_jOkeyMouseClicked
+        jBill.setText(Double.toString(jbill));
+    }//GEN-LAST:event_jFacturaMouseClicked
 
     /**
      * @param args the command line arguments
@@ -423,19 +414,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jBill;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton jFactura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JButton jOkey;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JSpinner nrAdulti;
-    private javax.swing.JSpinner nrCopii;
     // End of variables declaration//GEN-END:variables
 }

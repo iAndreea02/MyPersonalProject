@@ -1,6 +1,7 @@
 
 package yas.proiect.smart;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -56,12 +57,19 @@ public class PPA extends Turism {
       System.out.println("Totalul de plata este a ajuns la valoarea de "+bill+" lei");
      
     }
-    
-    
+     public static void AfisarePret(ArrayList<PPA> vectorPPA,String servicii,double pret)
+    {
+         for(PPA ppa:vectorPPA)
+         {if( pret<ppa.pret[0]) 
+            for (String s:ppa.servicii ){
+             if(s.equals(servicii))
+             System.out.println(ppa);}
+    }
+    }  
 
     @Override
     public String toString() {
-        return super.toString() + "\nAre ambulanta: " + areAmbulanta;
+        return super.toString() + "\nAre ambulanta: " + areAmbulanta+"\n\n";
     }
     
     

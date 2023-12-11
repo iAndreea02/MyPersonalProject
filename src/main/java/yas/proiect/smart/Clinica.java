@@ -1,4 +1,5 @@
 package yas.proiect.smart;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -81,9 +82,21 @@ public class Clinica extends Turism {
         System.out.println("Factura voastra este de "+bill+" lei.");
         
     }
+     public static void AfisareServicii(ArrayList<Clinica> vectorClinica,String servicii,int program)
+    {   
+         for(Clinica clinica:vectorClinica)
+             
+         {if( clinica.program[0]>=program)
+         {  for (String s:clinica.servicii ){
+             if(s.equals(servicii))
+             System.out.println(clinica);}
+         }
+             
     
+         }
+    }
     @Override
     public String toString() {
-        return super.toString() + "\nSpecializari oferite : " + Arrays.toString(servicii);
+        return super.toString() + "\nSpecializari oferite : " + Arrays.toString(servicii)+"\n\n";
     }
 }

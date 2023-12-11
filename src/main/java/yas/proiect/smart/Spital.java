@@ -1,4 +1,5 @@
 package yas.proiect.smart;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -109,7 +110,18 @@ public class Spital extends Turism{
     @Override
         public String toString()
     {
-        return super.toString() + "\nTip serviciu oferite: " +  Arrays.toString(servicii);
+        return super.toString() + "\nTip serviciu oferite: " +  Arrays.toString(servicii)+"\n\n";
     }
     
+        public static void AfisareDomeniu(ArrayList<Spital> vectorSpital,String servicii,String domeniu)
+    {
+         for(Spital spital:vectorSpital)
+         { {if( spital.domeniu.equals(domeniu))
+         {  for (String s:spital.servicii ){
+             if(s.equals(servicii))
+             System.out.println(spital);}
+         }
+    }
+         }    
+}
 }

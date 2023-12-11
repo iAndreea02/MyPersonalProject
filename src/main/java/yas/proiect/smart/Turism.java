@@ -13,7 +13,7 @@ import java.util.Set;
 public abstract class Turism {
 
     public float rating;
-    protected double[] pret ;
+    public double[] pret ;
     public String adresa, nume;
     public int[] program = new int[2] ;
     protected double bill = 0.0;
@@ -78,8 +78,12 @@ public abstract class Turism {
     public double getBill() {
         return bill;
     }
-    
-
+    public void resetBill(){
+    bill=0.0;
+    }
+    public void reset(){
+    bill=0.0;
+    }
    
 
     public final static void menu() {

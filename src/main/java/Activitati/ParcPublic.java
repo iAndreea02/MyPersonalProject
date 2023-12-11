@@ -10,6 +10,10 @@
  */
 package Activitati;
 
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import yas.proiect.smart.Turism;
 
 
@@ -20,6 +24,7 @@ public class ParcPublic extends Turism {
     
     public int nrBiciclete ;
     public int nrBanci;
+    public int reducere;
     ///private String[] other;
     
     public ParcPublic() {
@@ -28,14 +33,27 @@ public class ParcPublic extends Turism {
         nrBanci = 0;
         nrToalete = 0;
         nrBiciclete=0;
+        reducere=0;
+    }
+     public double showThatPrice(String nume) {
+        Map<String, Double> m = new HashMap<>();
+        m.put("Toaleta", pret[2]);
+        m.put("Bicicleta", pret[3]);
+        return m.get(nume);
+    }
+    
+    public double getValBilet(int nrCopii,int nrAdulti){
+        return (nrCopii * pret[0] + nrAdulti * pret[1]);
+    
     }
 
-    public ParcPublic(String nume, String adresa, int program[], float rating, double[] pret,double suprafata ,int nrToalete,int nrBanci,int nrBiciclete) {
+    public ParcPublic(String nume, String adresa, int program[], float rating, double[] pret,double suprafata ,int nrToalete,int nrBanci,int nrBiciclete,int reducere) {
         super(nume, adresa, program, rating, pret);
         this.suprafata=suprafata;
         this.nrToalete = nrToalete;
         this.nrBanci=nrBanci;
         this.nrBiciclete=nrBiciclete;
+        this.reducere=reducere;
     }
 
     public ParcPublic(ParcPublic P) {
@@ -44,15 +62,19 @@ public class ParcPublic extends Turism {
         this.nrBanci=P.nrBanci;
         this.nrToalete=P.nrToalete;
         this.nrBiciclete=P.nrBiciclete;
+        this.reducere=P.reducere;
     }
-
-
-    public void folosescToaleta(double taxa) throws Exception {
-        if (nrToalete == 0) {
-            throw new Exception("Nu sunt toatele in parc :(");
+    
+        public void vreaSaIntre(int nrCopii,int nrAdulti){
+            if(pret[0]!=0){
+                bill+=nrCopii * pret[0] + nrAdulti * pret[1];
+                System.out.println("Ai achitat!! "+bill);
+            }else System.out.println("nu platesti nimic");
         }
-        System.out.println("\nTaxa la toaleta: " + taxa);
-        bill += taxa;
+    public void folosescToaleta() {
+      
+        System.out.println("\nTaxa la toaleta: " + pret[2]);
+        bill += pret[2];
     }
     
     public void setBiciclete(int nr_biciclete) {
@@ -63,17 +85,19 @@ public class ParcPublic extends Turism {
         this.nrBiciclete=nr_biciclete;
     }
     
-    public void inchiriezBicicleta(int ora,int nr_adulti,int nr_copii){
+    public void inchiriezBicicleta(int ora,int nr_adulti,int nr_copii,int reducere){
     if(this.nrBiciclete ==0)
         System.out.println("Nu aveti biciclete disponibile:(");
     else 
     {   
         System.out.println("Ati inchiriat "+(nr_adulti+nr_copii)+"bicicleta/e.\n Pret/ora la *adult: " +super.pret[1]+ " *copii: " +super.pret[0]);
-        bill+=(super.pret[1]*nr_adulti+super.pret[0]*nr_copii)*ora;
-        System.out.println("Suma totata pentru "+ora+ "ora/e: "+((pret[1]*nr_adulti+pret[0]*nr_copii)*ora));
+        bill+=(super.pret[3]*nr_adulti+(pret[3]-reducere*pret[3]/100)*nr_copii)*ora;
+        System.out.println("Suma totata pentru "+ora+ "ora/e: "+((pret[2]*nr_adulti+pret[3]*nr_copii)*ora));
     }   
     }
-        
+        public double getBike(int ora,int nr_adulti,int nr_copii,int reducere){
+        return (super.pret[3]*nr_adulti+(pret[3]-reducere*pret[3]/100)*nr_copii)*ora;
+        }
     //magazin
 
     @Override
@@ -81,9 +105,17 @@ public class ParcPublic extends Turism {
         return super.toString() +"\nSuprafata: " 
                 +this.suprafata+"\nNr de *toalete " 
                 + this.nrToalete+"\nNr de banci: "+this.nrBanci
-                +"\nNr de biciclete de inchiriat: "+this.nrBiciclete+"\n\n" ;
+                +"\nNr de biciclete de inchiriat: "+this.nrBiciclete+"\n\n"+(pret[0]==0?"\nIntrare libera ":"Taxa de intrare este : *copii "+pret[0]+" *adulti:"+pret[1]) ;
     }
-    
+     
+    public static void conditieParc(ArrayList<ParcPublic>vecParcPublic,float rating,boolean toilet){
+     
+    for (ParcPublic parc:vecParcPublic)
+        if((toilet==true && parc.nrToalete>0)||(toilet==false && parc.nrToalete==0))
+            if(parc.rating>rating ){
+            System.out.println(parc);
+        }
+    }
         
     }
     

@@ -15,6 +15,8 @@ Muzeu
  */
 package Activitati;
 
+import static datele_mele.DateCity.vecCasaMemoriala;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -28,18 +30,16 @@ public class Muzeu extends Turism {
     public int an;
     public String tipul;
     public int suprafata;
-   
-//Date bilet
-   
-    //Constructo -fara parametrii
 
+//Date bilet
+    //Constructo -fara parametrii
     public Muzeu() {
 
         super();
         tipul = "Necunoscut";
         an = 0;
         suprafata = 0;
-      
+
     }
 
     //-cu param
@@ -48,7 +48,7 @@ public class Muzeu extends Turism {
         this.tipul = tipul;
         this.an = an;
         this.suprafata = suprafata;
-        
+
     }
 
     //-de copiere
@@ -61,20 +61,26 @@ public class Muzeu extends Turism {
 
     //Buy ticket & Entry
     public void cumparBilet(int nrCopii, int nrAdulti) {
-       System.out.println("\n\nBine ai venit la: " + nume);
-       System.out.println("Pret la adulti este : " + pret[1] + "lei.   \nPret la copii: " + pret[0] + " lei.");
-        bill += nrCopii * pret[0] + nrAdulti *pret[1];
-       System.out.println("Nr de adulti: " + nrAdulti + " lei. \nNr de copii: " + nrCopii + " lei va ajunge la pretul de " + (nrCopii * pret[0] + nrAdulti * pret[1]) + " lei\n\n");
+        System.out.println("\n\nBine ai venit la: " + nume);
+        System.out.println("Pret la adulti este : " + pret[1] + "lei.   \nPret la copii: " + pret[0] + " lei.");
+        bill += nrCopii * pret[0] + nrAdulti * pret[1];
+        System.out.println("Nr de adulti: " + nrAdulti + " \nNr de copii: " + nrCopii + "  va ajunge la pretul de " + (nrCopii * pret[0] + nrAdulti * pret[1]) + " lei\n\n");
     }
-    public double showThatPrice(String nume){
-    Map<String,Double> m =new HashMap<>();
-    m.put("Poze",pret[2]);
-    m.put("Breloc",pret[3]);
-    m.put("Magneti",pret[4]);
-    m.put("Carti",pret[5]);
+
+    public double getValBilet(int nrCopii, int nrAdulti) {
+
+        return (nrCopii * pret[0] + nrAdulti * pret[1]);
+    }
+
+    public double showThatPrice(String nume) {
+        Map<String, Double> m = new HashMap<>();
+        m.put("Poze", pret[2]);
+        m.put("Breloc", pret[3]);
+        m.put("Magneti", pret[4]);
+        m.put("Carti", pret[5]);
         return m.get(nume);
     }
-   
+
     //Shop +Poze
     public void vreaPoze() {
         System.out.println("Taxa de poze este : " + pret[2]);
@@ -82,7 +88,7 @@ public class Muzeu extends Turism {
     }
 
     public void vreaSuvenir(String raspuns) {
-        System.out.println("La suvenir avem : Breloc " + pret[1] + " \n Magneti- " + pret[2] + "\n Carti -" + pret[3]);
+        System.out.println("La suvenir avem : Breloc " + pret[3] + " \n Magneti- " + pret[4] + "\n Carti -" + pret[5]);
         //String raspuns = in.next();
         switch (raspuns) {
             case "Breloc":
@@ -101,8 +107,8 @@ public class Muzeu extends Turism {
 
     public void vreaSaDoneze(double donare) {
 
-        System.out.println("Vizitatorii vor dona: "+donare);
-      //  donare = in.nextDouble();
+        System.out.println("Vizitatorii vor dona: " + donare);
+        //  donare = in.nextDouble();
         bill += donare;
 
     }
@@ -110,7 +116,14 @@ public class Muzeu extends Turism {
     //@Override
     @Override
     public String toString() {
-        return super.toString() + "\nCategorie: " + this.tipul + "\n Anul infintat: " + an + "\nSuprafata: " + this.suprafata+"\n\n";
+        return super.toString() + "\nCategorie: " + this.tipul + "\n Anul infintat: " + an + "\nSuprafata: " + this.suprafata + "\n\n";
     }
 
+    public static void conditieMuzeu(ArrayList<Muzeu>vecMuzeu,int program,String tipul)
+    {
+    
+    for (Muzeu muzeu:vecMuzeu){
+        if(muzeu.program[0]>program && muzeu.tipul.equals(tipul))
+            System.out.println(muzeu);
+    }}
 }
